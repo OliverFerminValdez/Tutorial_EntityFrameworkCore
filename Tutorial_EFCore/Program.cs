@@ -25,14 +25,27 @@ namespace Tutorial_EFCore
                         Direccion = "Castillo"
                     };
 
-                contexto.Productos.Add(producto);
+                contexto.Productos.Add(producto); //Añadiendo data
                 contexto.SaveChanges();
 
                 //Consultando
 
                 var consulta = contexto.Productos.Where(p => p.Descripcion == "Peras").ToList();
-
+                var consulta2 = contexto.Productos.ToList();
                 
+                Console.WriteLine("\n");
+                foreach (var item in consulta)
+                {
+                    Console.WriteLine("Descripcion: " + item.Descripcion + " Precio: " + item.Precio);
+                }
+                Console.WriteLine("\n");
+                Console.WriteLine("\n");
+
+                foreach (var item in consulta2)
+                {
+                    Console.WriteLine("Descripcion: " + item.Descripcion + " Precio: " + item.Precio);
+                }
+                //Actualizando datos
 
             }
         }
