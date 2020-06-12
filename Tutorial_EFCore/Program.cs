@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Tutorial_EFCore.CRUD;
 using Tutorial_EFCore.Models;
 
 namespace Tutorial_EFCore
@@ -12,21 +13,8 @@ namespace Tutorial_EFCore
         {
             using(var contexto = new Contexto())
             {
-                var producto = new Productos
-                {
-                    Descripcion = "Piñas",
-                    Precio = 58
-                };
 
-                    var cliente = new Cliente
-                    {
-                        Nombre = "Pedro",
-                        Cedula = "000-000-000",
-                        Direccion = "Castillo"
-                    };
-
-                contexto.Productos.Add(producto); //Añadiendo data
-                contexto.SaveChanges();
+                DataDriving.GuardandoDatos();
 
                 //Consultando
 
@@ -47,6 +35,7 @@ namespace Tutorial_EFCore
                 }
                 //Actualizando datos
 
+                
             }
         }
     }
