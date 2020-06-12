@@ -42,6 +42,25 @@ namespace Tutorial_EFCore.CRUD
 
             db.Entry(entidad).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
             db.SaveChanges();
+
+            var productoModificado = new Productos()
+            {
+                ProductoId = 4,
+                Descripcion = "Fresas",
+                Precio = 400
+
+            };
+
+        }
+
+        public static void EliminarDatos()
+        {
+            Contexto db = new Contexto();
+
+            var item = db.Productos.Find(6);
+
+            db.Productos.Remove(item);
+            db.SaveChanges();
         }
     }
 }

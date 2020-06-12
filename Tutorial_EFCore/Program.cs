@@ -18,6 +18,7 @@ namespace Tutorial_EFCore
 
                 DataDriving.ActualizarDatos();
 
+                DataDriving.EliminarDatos();
                 //Consultando
 
                 var consulta = contexto.Productos.Where(p => p.Descripcion == "Peras").ToList();
