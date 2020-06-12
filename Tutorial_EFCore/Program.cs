@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Tutorial_EFCore.Models;
 
 namespace Tutorial_EFCore
@@ -11,12 +14,25 @@ namespace Tutorial_EFCore
             {
                 var producto = new Productos
                 {
-                    Descripcion = "Manzanas",
-                    Precio = 40
+                    Descripcion = "Piñas",
+                    Precio = 58
                 };
+
+                    var cliente = new Cliente
+                    {
+                        Nombre = "Pedro",
+                        Cedula = "000-000-000",
+                        Direccion = "Castillo"
+                    };
 
                 contexto.Productos.Add(producto);
                 contexto.SaveChanges();
+
+                //Consultando
+
+                var consulta = contexto.Productos.Where(p => p.Descripcion == "Peras").ToList();
+
+                
 
             }
         }
