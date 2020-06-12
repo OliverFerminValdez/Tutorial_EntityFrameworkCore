@@ -60,6 +60,21 @@ namespace Tutorial_EFCore.Migrations
                     b.ToTable("Clientes");
                 });
 
+            modelBuilder.Entity("Tutorial_EFCore.Models.Facturas", b =>
+                {
+                    b.Property<int>("FacturaId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<double>("TotalGeneral")
+                        .HasColumnType("float");
+
+                    b.HasKey("FacturaId");
+
+                    b.ToTable("Facturas");
+                });
+
             modelBuilder.Entity("Tutorial_EFCore.Models.Productos", b =>
                 {
                     b.Property<int>("ProductoId")
@@ -70,10 +85,15 @@ namespace Tutorial_EFCore.Migrations
                     b.Property<string>("Descripcion")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("FacturasFacturaId")
+                        .HasColumnType("int");
+
                     b.Property<double>("Precio")
                         .HasColumnType("float");
 
                     b.HasKey("ProductoId");
+
+                    b.HasIndex("FacturasFacturaId");
 
                     b.ToTable("Productos");
                 });
@@ -83,6 +103,13 @@ namespace Tutorial_EFCore.Migrations
                     b.HasOne("Tutorial_EFCore.Models.Cliente", "cliente")
                         .WithMany()
                         .HasForeignKey("ClienteId");
+                });
+
+            modelBuilder.Entity("Tutorial_EFCore.Models.Productos", b =>
+                {
+                    b.HasOne("Tutorial_EFCore.Models.Facturas", null)
+                        .WithMany("Productos")
+                        .HasForeignKey("FacturasFacturaId");
                 });
 #pragma warning restore 612, 618
         }
