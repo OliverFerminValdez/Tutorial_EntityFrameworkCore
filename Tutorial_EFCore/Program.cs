@@ -16,6 +16,8 @@ namespace Tutorial_EFCore
 
                 DataDriving.GuardandoDatos();
 
+                DataDriving.ActualizarDatos();
+
                 //Consultando
 
                 var consulta = contexto.Productos.Where(p => p.Descripcion == "Peras").ToList();

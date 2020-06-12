@@ -32,5 +32,16 @@ namespace Tutorial_EFCore.CRUD
 
         }
 
+        public static void ActualizarDatos()
+        {
+            Contexto db = new Contexto();
+
+            var entidad = db.Productos.Find(4);
+
+            entidad.Descripcion = "Mango";
+
+            db.Entry(entidad).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            db.SaveChanges();
+        }
     }
 }
