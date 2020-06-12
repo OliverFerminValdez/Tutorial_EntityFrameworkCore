@@ -11,6 +11,7 @@ namespace Tutorial_EFCore
     {
         public DbSet<Cliente> Clientes { get; set; }
         public DbSet<Productos> Productos { get; set; }
+        public DbSet<Cedula> Cedulas { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder dbContextOptionsBuilder)
         {
