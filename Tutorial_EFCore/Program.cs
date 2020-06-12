@@ -1,4 +1,5 @@
 ﻿using System;
+using Tutorial_EFCore.Models;
 
 namespace Tutorial_EFCore
 {
@@ -6,7 +7,18 @@ namespace Tutorial_EFCore
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            using(var contexto = new Contexto())
+            {
+                var producto = new Productos
+                {
+                    Descripcion = "Manzanas",
+                    Precio = 40
+                };
+
+                contexto.Productos.Add(producto);
+                contexto.SaveChanges();
+
+            }
         }
     }
 }
