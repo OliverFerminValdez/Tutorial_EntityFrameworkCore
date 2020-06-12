@@ -13,6 +13,7 @@ namespace Tutorial_EFCore
         public DbSet<Productos> Productos { get; set; }
         public DbSet<Cedula> Cedulas { get; set; }
         public DbSet<Facturas> Facturas { get; set; }
+        public DbSet<Recibo> Recibos { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder dbContextOptionsBuilder)
         {

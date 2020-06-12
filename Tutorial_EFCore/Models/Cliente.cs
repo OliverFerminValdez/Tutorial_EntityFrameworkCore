@@ -12,6 +12,7 @@ namespace Tutorial_EFCore.Models
         public string Nombre { get; set; }
         public string Cedula { get; set; }
         public string Direccion { get; set; }
+        public Recibo recibo { get; set; }
 
     }
 }
